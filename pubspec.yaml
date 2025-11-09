@@ -1,0 +1,35 @@
+description: StackWork MVP-01/02 (Self-check + Weekly AI Summary)
+publish_to: "none"
+
+
+environment:
+sdk: ">=3.3.0 <4.0.0"
+
+
+dependencies:
+flutter:
+sdk: flutter
+# Firebase
+firebase_core: ^3.6.0
+cloud_firestore: ^5.4.4
+firebase_auth: ^5.3.1
+# Local cache
+hive: ^2.2.3
+hive_flutter: ^1.1.0
+# HTTP / JSON
+http: ^1.2.2
+intl: ^0.19.0
+# Charts（軽量に自作でもOKだが暫定）
+fl_chart: ^0.69.0
+
+
+dev_dependencies:
+flutter_test:
+sdk: flutter
+flutter_lints: ^4.0.0
+
+
+flutter:
+uses-material-design: true
+assets:
+  - assets/

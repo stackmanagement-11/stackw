@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'build']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['functions', 'deploy', 'weeklySummary',
+           '--region=us-central1',
+           '--runtime=nodejs20',
+           '--trigger-http',
+           '--allow-unauthenticated',
+           '--project=stackw-26ddb']
+
+timeout: '1200s'

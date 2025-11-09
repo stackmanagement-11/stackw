@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /stores/{storeId} {
+      allow read: if true; // 検証用。あとで厳しくする
+      match /checkins/{docId} {
+        allow read: if true;
+        allow write: if request.auth != null && request.resource.data.storeId == storeId;
+      }
+      match /metrics/{dateId} {
+        allow read: if true;
+        allow write: if request.auth != null && request.resource.data.storeId == storeId;
+      }
+    }
+  }
+}
