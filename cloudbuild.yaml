@@ -1,13 +1,17 @@
+# Cloud Build: Flutter (Web) ビルド
+# ログは Cloud Logging のみに送る（バケット不要）
 options:
   logging: CLOUD_LOGGING_ONLY
 
 steps:
-  - name: 'gcr.io/dart-lang/flutter'
+  # 公式に近い安定イメージ（GitHub Container Registry）
+  - name: 'ghcr.io/cirruslabs/flutter:3.24.3'
     entrypoint: bash
     args:
-      - -c
+      - -lc
       - |
         flutter --version
+        flutter config --enable-web
         flutter pub get
         flutter build web --release
 
