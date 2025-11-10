@@ -1,12 +1,14 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
-  - name: 'cirrusci/flutter:3.24.3'
+  - name: 'gcr.io/dart-lang/flutter'
     entrypoint: bash
     args:
       - -c
       - |
+        flutter --version
         flutter pub get
         flutter build web --release
-timeout: '1200s'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+timeout: '1200s'
